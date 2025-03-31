@@ -5,6 +5,8 @@
 acesso e as modificações. Veremos as seguintes estruturas:
 
 ## Listas Encadeadas
+- Estáticas
+- Dinâmicas
 
 ## Pilhas
 - Simples
