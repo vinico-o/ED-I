@@ -1,6 +1,7 @@
 # Estrutura de Dados I
 
-## Definição de Estrutura de Dados: é um meio para armazenar e organizar dados com o objetivo de facilitar o
+## Definição de Estrutura de Dados: 
+É um meio para armazenar e organizar dados com o objetivo de facilitar o
 acesso e as modificações. Veremos as seguintes estruturas:
 
 ## Listas Encadeadas
