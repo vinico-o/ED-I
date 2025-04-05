@@ -22,10 +22,10 @@ void Reinicializar(Lista* lista)
         No* temp = ptr;
         ptr = ptr->ant;
 
-        if(ptr->tipo == 1)
+        if(temp->tipo == 1)
         {
-            Reinicializar(ptr->Elemento.sublista);
-            free(ptr->Elemento.sublista);
+            Reinicializar(temp->Elemento.sublista);
+            free(temp->Elemento.sublista);
         }
 
         free(temp);
