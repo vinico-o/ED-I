@@ -77,6 +77,9 @@ int main ()
     Imprimir_Lista(&lista);
     printf("\n");
 
-
+    Reinicializar(&sublista);
+    Reinicializar(&lista);
+    Reinicializar(&lista2);
+    
     return 0;
 }
