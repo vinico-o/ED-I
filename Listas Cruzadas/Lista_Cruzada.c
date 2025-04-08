@@ -116,7 +116,6 @@ void Remover(Matriz* matriz, int linha, int coluna)
 {
     No* ptrLinha = matriz->linha[linha]; //utilizado para ajustar os ponteiros
     No* ptrColuna = matriz->coluna[coluna]; //utilizado para ajustar os ponteiros
-    No* temp; //utilizado para marcar o elemento e dar free depois
     No* ant = NULL; //utilizado para ajustar os ponteiros
 
     //posicionando os ponteiros
@@ -126,9 +125,9 @@ void Remover(Matriz* matriz, int linha, int coluna)
         ptrLinha = ptrLinha->direita;
     }
     
-    if(ant == NULL && ptrLinha == NULL)
+    if(ptrLinha == NULL || ptrLinha->coluna != coluna)
     {
-        printf("Nao existe elemento para remover!\n");
+        printf("Elemento nao encontrado!\n");
         return;
     }
 
@@ -151,11 +150,6 @@ void Remover(Matriz* matriz, int linha, int coluna)
         ptrColuna = ptrColuna->baixo;
     }
 
-    if(ant == NULL && ptrColuna == NULL)
-    {
-        printf("Nao existe elemento para remover!\n");
-        return;
-    }
 
     //se estiver no inicio da lista
     if(ant == NULL)
@@ -166,11 +160,9 @@ void Remover(Matriz* matriz, int linha, int coluna)
     {
         ant->baixo = ptrColuna->baixo; //ajustando o ponteiro para o proximo do atual
         ptrColuna->baixo = NULL; //removendo o ponteiro do atual
-
-        temp = ptrColuna;
     }
 
-    free(temp);
+    free(ptrLinha);
 }
 
 void Imprimir(Matriz *matriz)
@@ -205,9 +197,16 @@ void Somar_Linha(Matriz* matriz, int linha, int constante)
     No* ptr;
     ptr = matriz->linha[linha];
 
-    while(ptr != NULL)
+    for(int i = 0; i < COLUNA; i++)
     {
-        ptr->numero += constante;
-        ptr = ptr->direita;
+        if(ptr != NULL && ptr->coluna == i)
+        {
+            ptr->numero += constante;
+            ptr = ptr->direita;
+        }
+        else
+        {
+            Inserir(matriz, linha, i, constante);
+        }
     }
 }
