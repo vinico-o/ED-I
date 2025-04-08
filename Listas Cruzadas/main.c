@@ -13,9 +13,13 @@ int main ()
         }
     }
 
+    Remover(&matriz, 2, 2);
+    Remover(&matriz, 0, 0);
+    Remover(&matriz, 2, 1);
+
     Imprimir(&matriz);
 
-    Somar_Linha(&matriz, 1, 3);
+    Somar_Linha(&matriz, 2, 3);
 
     Imprimir(&matriz);
 
@@ -23,13 +27,11 @@ int main ()
     {
         for(int j = 0; j < COLUNA; j++)
         {
-            Remover(&matriz, i, j);
             printf("REMOCAO %d %d\n", i, j);
+            Remover(&matriz, i, j);
             Imprimir(&matriz);
         }
     }
 
-    Remover(&matriz, 3, 3); //testando remocao de elem ento que nao existe
-    
     return 0;
 }
