@@ -16,4 +16,7 @@ typedef struct Matriz
 } Matriz;
 
 void Inicializar_Matriz(Matriz* matriz);
+void Inserir(Matriz* matriz, int linha, int coluna, int elemento);
+void Remover(Matriz* matriz, int linha, int coluna);
 void Imprimir(Matriz *matriz);
+void Somar_Linha(Matriz* matriz, int linha, int constante);
